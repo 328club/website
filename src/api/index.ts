@@ -2,9 +2,10 @@ import { post } from "./request";
 console.log(import.meta.env.MODE)
 
 function buildUrl(url: string) {
-  return import.meta.env.MODE === 'development'
-    ? `/api/v1/lucky/lottery${url}`
-    : `http://lucky.328club.com/api/v1/lucky/lottery${url}`;
+  return `/api/v1/lucky/lottery${url}`;
+  // return import.meta.env.MODE === 'development'
+  //   ? `/api/v1/lucky/lottery${url}`
+  //   : `http://lucky.328club.com/api/v1/lucky/lottery${url}`;
 
 }
 
