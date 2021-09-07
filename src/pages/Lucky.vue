@@ -78,7 +78,7 @@ export default defineComponent({
       this.loading = false;
     },
 
-    prefixInteger: function (num=6, m=2) {
+    prefixInteger: function (num=6, m=6) {
       return (Array(m).join() + num).slice(-m);
     },
     onSevenStars: function () {
@@ -92,7 +92,7 @@ export default defineComponent({
       console.log(seed);
       this.loading = true;
       const num_1 = this.prefixInteger(Math.floor(Math.random()*999999), 6);
-      const num_2 = this.prefixInteger(Math.floor(Math.random()*14), 2);
+      const num_2 = Math.floor(Math.random()*14);
       this.result = `[${num_1.split("").toString()}]+[${num_2.toString()}]`;
       this.loading = false;
       this.visible = true;
