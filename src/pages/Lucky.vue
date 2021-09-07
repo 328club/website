@@ -4,6 +4,7 @@
     <div>
       <el-button class="bth" @click="onSingleBet">单注</el-button>
       <el-button class="bth" @click="onBraveDrag">胆拖</el-button>
+      <el-button class="bth" @click="onSevenStars">七星彩</el-button>
     </div>
     <el-dialog title="祝你幸运" v-model="visible" :width="width < 600 ? '80%' : undefined"
       ><div class="result-dialog">
@@ -75,6 +76,26 @@ export default defineComponent({
       const { data } = await LuckyApi.getBraveDrag({ seed });
       this.result = data;
       this.loading = false;
+    },
+
+    prefixInteger: function (num=6, m=2) {
+      return (Array(m).join() + num).slice(-m);
+    },
+    onSevenStars: function () {
+      if (!this.inputVal) {
+        ElMessage({
+          message: "请输入幸运号码",
+        });
+        return;
+      }
+      const seed = parseInt(this.inputVal);
+      console.log(seed);
+      this.loading = true;
+      const num_1 = this.prefixInteger(Math.floor(Math.random()*999999), 6);
+      const num_2 = this.prefixInteger(Math.floor(Math.random()*14), 2);
+      this.result = `[${num_1.split("").toString()}]+[${num_2.toString()}]`;
+      this.loading = false;
+      this.visible = true;
     },
     onCopy: function () {
       const tag = document.createElement("input");
