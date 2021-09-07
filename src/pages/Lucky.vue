@@ -79,7 +79,7 @@ export default defineComponent({
     },
 
     prefixInteger: function (num=6, m=6) {
-      return (Array(m).join() + num).slice(-m);
+      return (Array(m).join('0') + num).slice(-m)
     },
     onSevenStars: function () {
       if (!this.inputVal) {
