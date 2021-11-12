@@ -125,6 +125,8 @@ export default defineComponent({
   background-size: auto 100%;
   background-position: 50% 50%;
   background-color: #000000;
+  padding: 20px;
+  box-sizing: border-box;
 
   .input {
     max-width: 360px;
@@ -150,7 +152,8 @@ export default defineComponent({
     }
   }
   .bth {
-    width: 100px
+    width: 100px;
+    margin-bottom: 10px;
   }
 
 
